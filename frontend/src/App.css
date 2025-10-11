@@ -1,0 +1,215 @@
+/* Global body styling with gradient background for attractiveness */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+/* Upload card with enhanced shadows, responsiveness, and subtle gradient */
+.upload-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  margin: 20px;
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(102, 126, 234, 0.1);
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(102, 126, 234, 0.2);
+}
+
+/* Title with icon integration using ::before */
+.upload-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #4a5568;
+  position: relative;
+}
+
+.upload-card h2::before {
+  content: "📘";
+  font-size: 32px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* File input with focus glow and hover effects */
+.upload-card input[type="file"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px dashed #cbd5e0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #f7fafc;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.upload-card input[type="file"]:hover {
+  border-color: #667eea;
+  background: #edf2f7;
+}
+
+.upload-card input[type="file"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+/* Upload button with gradient, animations, and states */
+.upload-button {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.upload-button:hover::before {
+  left: 100%;
+}
+
+.upload-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.upload-button:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+  animation: pulse 1.5s infinite;
+  transform: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Status message with fade-in animation and color-coding */
+.status-message {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  word-wrap: break-word;
+  animation: fadeIn 0.5s ease-in;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.status-message.success {
+  color: #38a169;
+  background: rgba(56, 161, 105, 0.1);
+}
+
+.status-message.error {
+  color: #e53e3e;
+  background: rgba(229, 62, 62, 0.1);
+}
+
+.status-message.warning {
+  color: #d69e2e;
+  background: rgba(214, 158, 46, 0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Success state classes for App.js */
+.success-container {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(145deg, #ffffff, #f9f9f9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  animation: slideIn 0.6s ease-out;
+}
+
+.success-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #38a169;
+  margin-bottom: 15px;
+}
+
+.success-title::before {
+  content: "✅";
+  font-size: 36px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.success-text {
+  font-size: 18px;
+  color: #718096;
+  margin-top: 10px;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .upload-card {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+
+  .upload-card h2 {
+    font-size: 24px;
+  }
+
+  .upload-button {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .success-container {
+    padding: 30px 20px;
+  }
+
+  .success-title {
+    font-size: 28px;
+  }
+
+  .success-text {
+    font-size: 16px;
+  }
+}
