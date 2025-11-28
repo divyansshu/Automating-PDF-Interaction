@@ -16,9 +16,9 @@ import os
 
 
 # Add the project root directory to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from pdf_processor import prepare_chunks_from_pdf
+from backend.app.pdf_processor import prepare_chunks_from_pdf
 
 
 class EmbeddingGenerator:
@@ -81,10 +81,10 @@ class EmbeddingGenerator:
 
 
 # Example usage (standalone)
-if __name__ == "__main__":
-    pdf_path = "sample_pdf.pdf"
-    chunks = prepare_chunks_from_pdf(pdf_path)
+# if __name__ == "__main__":
+#     pdf_path = "sample_pdf.pdf"
+#     chunks = prepare_chunks_from_pdf(pdf_path)
 
-    emb_gen = EmbeddingGenerator()
-    embeddings_data = emb_gen.generate_embeddings(chunks)
-    emb_gen.save_embeddings(embeddings_data)
+#     emb_gen = EmbeddingGenerator()
+#     embeddings_data = emb_gen.generate_embeddings(chunks)
+#     emb_gen.save_embeddings(embeddings_data)
