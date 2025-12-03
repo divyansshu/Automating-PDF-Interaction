@@ -41,7 +41,7 @@ A full-stack application that allows users to upload PDF documents and interact 
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/divyansshu/Automating-PDF-Interaction.git
 cd "Automating PDF Interaction"
 ```
 
