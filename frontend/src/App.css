@@ -294,6 +294,43 @@ body {
   border-bottom-left-radius: 4px;
 }
 
+/* Markdown Styles within Bubbles */
+.message-bubble p {
+  margin: 0 0 10px 0;
+}
+
+.message-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.message-bubble ul, .message-bubble ol {
+  margin: 5px 0 10px 20px;
+  padding: 0;
+}
+
+.message-bubble li {
+  margin-bottom: 5px;
+}
+
+.message-bubble strong {
+  font-weight: 700;
+}
+
+.message-bubble code {
+  background: rgba(0,0,0,0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.message-bubble pre {
+  background: rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
 .chat-input-area {
   padding: 20px;
   background: #ffffff;

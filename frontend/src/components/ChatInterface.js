@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ReactMarkdown from 'react-markdown';
 import '../App.css';
 
 export default function ChatInterface({ onReset }) {
@@ -66,7 +67,7 @@ export default function ChatInterface({ onReset }) {
                 {messages.map((msg, index) => (
                     <div key={index} className={`message ${msg.sender}`}>
                         <div className="message-bubble">
-                            {msg.text}
+                            <ReactMarkdown>{msg.text}</ReactMarkdown>
                         </div>
                     </div>
                 ))}
