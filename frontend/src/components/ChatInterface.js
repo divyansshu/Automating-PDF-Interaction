@@ -41,7 +41,8 @@ export default function ChatInterface({ onReset }) {
         setLoading(true);
 
         try {
-            const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+            let API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+            API_URL = API_URL.replace(/\/$/, "");
             const res = await axios.post(`${API_URL}/query`, {
                 question: query
             });

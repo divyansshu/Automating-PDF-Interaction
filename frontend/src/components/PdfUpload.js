@@ -21,7 +21,8 @@ export default function PdfUpload({ onUploadSuccess }) {
       setUploading(true);
       setMessage("⏳ Uploading... Please wait...");
 
-      const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+      let API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+      API_URL = API_URL.replace(/\/$/, "");
       const res = await axios.post(`${API_URL}/upload_pdf`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });

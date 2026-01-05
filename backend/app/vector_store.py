@@ -34,7 +34,7 @@ except Exception:
 def save_metadata(metadata_list, meta_path="meta_store.pkl"):
     with open(meta_path, "wb") as f:
         pickle.dump(metadata_list, f)
-    print(f"💾 Saved metadata to {meta_path}")
+    print(f" Saved metadata to {meta_path}")
 
 
 def load_metadata(meta_path="meta_store.pkl"):
@@ -42,7 +42,7 @@ def load_metadata(meta_path="meta_store.pkl"):
         raise FileNotFoundError(f"Metadata file not found: {meta_path}")
     with open(meta_path, "rb") as f:
         metadata_list = pickle.load(f)
-    print(f"📦 Loaded {len(metadata_list)} metadata records from {meta_path}")
+    print(f" Loaded {len(metadata_list)} metadata records from {meta_path}")
     return metadata_list
 
 
@@ -50,7 +50,7 @@ def save_index(index, index_path="faiss_index.idx"):
     if not _FAISS_AVAILABLE:
         raise RuntimeError("FAISS not available; cannot save FAISS index.")
     faiss.write_index(index, index_path)
-    print(f"💾 FAISS index saved to {index_path}")
+    print(f" FAISS index saved to {index_path}")
 
 
 def load_index(index_path="faiss_index.idx"):
@@ -59,7 +59,7 @@ def load_index(index_path="faiss_index.idx"):
     if not os.path.exists(index_path):
         raise FileNotFoundError(f"FAISS index file not found: {index_path}")
     index = faiss.read_index(index_path)
-    print(f"📦 FAISS index loaded from {index_path}")
+    print(f" FAISS index loaded from {index_path}")
     return index
 
 
@@ -89,7 +89,7 @@ def build_faiss_index(embeddings: np.ndarray, normalize: bool = True):
     # Use IndexFlatIP (inner product on normalized vectors = cosine similarity)
     index = faiss.IndexFlatIP(d)
     index.add(embeddings.astype(np.float32))
-    print(f"✅ Built FAISS index with {index.ntotal} vectors (dim={d})")
+    print(f" Built FAISS index with {index.ntotal} vectors (dim={d})")
     return index
 
 
@@ -115,11 +115,11 @@ def add_embeddings_to_index(embeddings_list, metadata_list, index=None, normaliz
             if normalize:
                 faiss.normalize_L2(embeddings)
             index.add(embeddings.astype(np.float32))
-            print(f"✅ Added {embeddings.shape[0]} vectors to existing FAISS index (total={index.ntotal})")
+            print(f" Added {embeddings.shape[0]} vectors to existing FAISS index (total={index.ntotal})")
         return index, metadata_list
     else:
         # In-memory fallback: return None index and metadata combined
-        print("⚠️ FAISS not available — using in-memory storage for search. Memory usage may be high.")
+        print(" FAISS not available — using in-memory storage for search. Memory usage may be high.")
         return None, metadata_list
 
 

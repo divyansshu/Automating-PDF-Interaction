@@ -43,14 +43,14 @@ class RAGPipeline:
             else:
                 self.index = None # Fallback to in-memory search
         except FileNotFoundError:
-            print("⚠️ Vector store not found. Please upload a PDF first.")
+            print(" Vector store not found. Please upload a PDF first.")
             self.index = None
             self.metadata = []
 
         # Initialize Inference Client (API)
         hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
         if not hf_token:
-            print("⚠️ HUGGINGFACEHUB_API_TOKEN not found in .env. LLM might fail.")
+            print(" HUGGINGFACEHUB_API_TOKEN not found in .env. LLM might fail.")
         
         try:
             print(f"Loading Inference Client for: {self.repo_id}")
@@ -59,9 +59,9 @@ class RAGPipeline:
                 model=self.repo_id,
                 token=hf_token
             )
-            print("✅ Inference Client initialized.")
+            print(" Inference Client initialized.")
         except Exception as e:
-            print(f"❌ Failed to initialize Client: {e}")
+            print(f" Failed to initialize Client: {e}")
             self.client = None
 
     def reload_index(self):
@@ -72,9 +72,9 @@ class RAGPipeline:
                 self.index = load_index(self.index_path)
             else:
                 self.index = None
-            print("🔄 RAG Pipeline: Index reloaded.")
+            print(" RAG Pipeline: Index reloaded.")
         except Exception as e:
-            print(f"⚠️ Could not reload index: {e}")
+            print(f" Could not reload index: {e}")
 
     def retrieve_context(self, query: str, top_k: int = 3) -> List[str]:
         """
