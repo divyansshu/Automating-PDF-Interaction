@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+frontend/build/
+frontend/dist/
+
+# Project Specific
+backend/app/faiss_index.idx
+backend/app/meta_store.pkl
+backend/app/embeddings_store.pkl
+backend/app/uploaded_*.pdf
+uploaded_*.pdf
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
