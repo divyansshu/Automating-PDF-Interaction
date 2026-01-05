@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Automating-PDF-Interaction/static/css/main.b52ab25b.css",
-    "main.js": "/Automating-PDF-Interaction/static/js/main.5ed25c1c.js",
+    "main.js": "/Automating-PDF-Interaction/static/js/main.884de1de.js",
     "static/js/453.bd7e1bec.chunk.js": "/Automating-PDF-Interaction/static/js/453.bd7e1bec.chunk.js",
     "index.html": "/Automating-PDF-Interaction/index.html",
     "main.b52ab25b.css.map": "/Automating-PDF-Interaction/static/css/main.b52ab25b.css.map",
-    "main.5ed25c1c.js.map": "/Automating-PDF-Interaction/static/js/main.5ed25c1c.js.map",
+    "main.884de1de.js.map": "/Automating-PDF-Interaction/static/js/main.884de1de.js.map",
     "453.bd7e1bec.chunk.js.map": "/Automating-PDF-Interaction/static/js/453.bd7e1bec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b52ab25b.css",
-    "static/js/main.5ed25c1c.js"
+    "static/js/main.884de1de.js"
   ]
 }
