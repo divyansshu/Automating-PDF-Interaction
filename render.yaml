@@ -2,7 +2,7 @@ services:
   - type: web
     name: pdf-interaction-backend
     env: python
-    buildCommand: pip install -r backend/requirements.txt
+    buildCommand: pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && pip install -r backend/requirements.txt
     startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
