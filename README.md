@@ -1,3 +1,12 @@
+---
+title: PDF AI Interaction Backend
+emoji: 📄
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # 📄 PDF AI Assistant
 
 A full-stack application that allows users to upload PDF documents and interact with them using natural language. Built with **FastAPI**, **React**, **LangChain**, and **Hugging Face**.
