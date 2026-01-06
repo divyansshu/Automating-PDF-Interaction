@@ -11,10 +11,6 @@ pinned: false
 
 A full-stack application that allows users to upload PDF documents and interact with them using natural language. Built with **FastAPI**, **React**, **LangChain**, and **Hugging Face**.
 
-## 🔗 Live Demo
-- **Frontend:** [https://divyansshu.github.io/Automating-PDF-Interaction](https://divyansshu.github.io/Automating-PDF-Interaction)
-- **Backend API:** [https://divyansshu-pdf-interaction-backend.hf.space/docs](https://divyansshu-pdf-interaction-backend.hf.space/docs)
-
 ## 🚀 Features
 
 - **Deployed & Live**: Fully hosted on Hugging Face Spaces (Backend) and GitHub Pages (Frontend).
