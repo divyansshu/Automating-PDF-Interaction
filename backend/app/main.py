@@ -30,8 +30,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Define Global Paths (Use /tmp for Docker permissions)
+INDEX_PATH = "/tmp/faiss_index.idx"
+META_PATH = "/tmp/meta_store.pkl"
+
 # Global RAG Pipeline instance
-rag_pipeline = RAGPipeline()
+rag_pipeline = RAGPipeline(index_path=INDEX_PATH, meta_path=META_PATH)
 
 class QueryRequest(BaseModel):
     question: str
@@ -48,8 +52,8 @@ async def upload_pdf(file: UploadFile = File(...)):
     if not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="File must be a PDF.")
 
-    # Save file locally
-    file_location = f"uploaded_{file.filename}"
+    # Save file locally (use /tmp for write permissions in Docker)
+    file_location = f"/tmp/uploaded_{file.filename}"
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
@@ -77,11 +81,12 @@ async def upload_pdf(file: UploadFile = File(...)):
         } for rec in embeddings_data]
 
         # Save to disk
+        # Save to disk
         if _FAISS_AVAILABLE:
             index = build_faiss_index(vectors)
-            save_index(index)
+            save_index(index, INDEX_PATH)
         
-        save_metadata(metadata)
+        save_metadata(metadata, META_PATH)
         
         # Reload RAG pipeline with new data
         rag_pipeline.reload_index()
